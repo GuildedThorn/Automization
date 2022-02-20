@@ -1,3 +1,5 @@
+#!/bin/bash
+
 apt -y update
 apt install mariadb-server
 
@@ -5,7 +7,6 @@ echo -n "Would you like allow remote connections (y/n)?"
 read -r answer
 
 if [ "$answer" == "y" ]; then
-  
   # check if sed is installed
   if ! [ -x "$(command -v sed)" ]; then
     echo 'Error: sed is not installed.' >&2
@@ -49,3 +50,5 @@ if [ "$answer" == "y" ]; then
     ufw allow 3306
     fi
 fi
+
+exit 0
